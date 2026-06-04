@@ -1,0 +1,9 @@
+# Guías del Proyecto - Listado de Contactos
+
+1. Arquitectura: Seguir patrones modernos de Android con Jetpack Compose.
+2. UI: 100% Jetpack Compose. No se permite el uso de XML para layouts.
+3. Navegación: Utilizar Navigation Compose con un único NavHost en MainActivity.
+4. Permisos: Solicitar permisos en tiempo de ejecución utilizando `rememberLauncherForActivityResult`.
+5. Intents: Utilizar Intents implícitos para interactuar con otras aplicaciones (Llamadas, Mensajes).
+6. Temas: Mantener consistencia con Material Design 3.
+7. Código: Mantener funciones composables pequeñas y reutilizables.
