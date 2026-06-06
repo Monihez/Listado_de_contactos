@@ -1,9 +1,34 @@
 # Guías del Proyecto - Listado de Contactos
 
-1. Arquitectura: Seguir patrones modernos de Android con Jetpack Compose.
-2. UI: 100% Jetpack Compose. No se permite el uso de XML para layouts.
-3. Navegación: Utilizar Navigation Compose con un único NavHost en MainActivity.
-4. Permisos: Solicitar permisos en tiempo de ejecución utilizando `rememberLauncherForActivityResult`.
-5. Intents: Utilizar Intents implícitos para interactuar con otras aplicaciones (Llamadas, Mensajes).
-6. Temas: Mantener consistencia con Material Design 3.
-7. Código: Mantener funciones composables pequeñas y reutilizables.
+## 1. Arquitectura
+Se ha utilizado una arquitectura de **Single Activity** basada enteramente en **Jetpack Compose**. La lógica de la interfaz de usuario está separada en funciones Composable modulares y reutilizables.
+
+## 2. Organización de Carpetas
+- `com.example.listadodecontactos`: Contiene la `MainActivity` y la lógica principal de la aplicación.
+- `ui.theme`: Contiene la definición del tema de Material 3 (colores, tipografía y formas).
+
+## 3. Navigation Compose
+Se emplea un único `NavHost` dentro de `MainActivity`. Las rutas definidas son:
+- `"lista"`: Pantalla principal con el buscador y la lista de contactos.
+- `"detalle/{nombre}/{telefono}"`: Pantalla que muestra la información extendida de un contacto seleccionado, recibiendo parámetros mediante `navArgument`.
+
+## 4. Intents Implícitos
+- **Llamadas**: Se utiliza `Intent.ACTION_CALL` para realizar llamadas directas desde la pantalla de detalle y `Intent.ACTION_DIAL` para abrir el marcador desde la lista.
+- **Mensajes**: Se utiliza `Intent.ACTION_SENDTO` con el esquema `smsto:` para abrir la aplicación de mensajería predeterminada.
+
+## 5. Permiso CALL_PHONE
+Para realizar llamadas directas (sin pasar por el marcador), se requiere el permiso `android.permission.CALL_PHONE`.
+- Está declarado en el `AndroidManifest.xml`.
+- Se solicita en tiempo de ejecución mediante `rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission())` antes de ejecutar la acción de llamada en la pantalla de detalle.
+
+## 6. Flujo de Navegación
+1. El usuario inicia en la lista de contactos.
+2. Puede filtrar contactos mediante la barra de búsqueda superior.
+3. Al tocar una tarjeta de contacto, navega a la pantalla de detalle.
+4. En el detalle, puede regresar a la lista mediante el botón de retroceso en la barra superior.
+
+## 7. Buenas Prácticas
+- **Material 3**: Uso extensivo de componentes oficiales como `Scaffold`, `NavigationBar`, `Card` y `TopAppBar`.
+- **Diseño Responsive**: Uso de modificadores como `fillMaxWidth` y `weight` para adaptarse a diferentes tamaños de pantalla.
+- **Estado**: Gestión de estado con `remember` y `mutableStateOf` para una UI reactiva.
+- **Inyección de Contexto**: Uso de `LocalContext.current` para acceder a recursos del sistema dentro de Composables.
