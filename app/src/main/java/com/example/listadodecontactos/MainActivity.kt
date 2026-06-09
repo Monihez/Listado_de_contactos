@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -93,22 +94,22 @@ data class Contacto(
 // 2. Lista exacta de 16 contactos mapeados a las imágenes disponibles en drawable
 // Se han omitido referencias a recursos no estándar como 'yo' para evitar errores de compilación
 val listaDe16Contactos = listOf(
-    Contacto("Adalverto", "555-1001", R.drawable.c1),
-    Contacto("Moni", "555-1002", R.drawable.c_2),
-    Contacto("Fidel", "555-1003", R.drawable.c_3),
-    Contacto("Luna", "555-1004", R.drawable.c_4),
-    Contacto("Alvaro", "555-1005", R.drawable.c_5),
-    Contacto("Uriel", "555-1006", R.drawable.c_7),
-    Contacto("Aytana", "555-1007", R.drawable.c_8),
-    Contacto("Charly", "555-1008", R.drawable.c_9),
-    Contacto("Criss", "555-1009", R.drawable.c_10),
-    Contacto("Jaz", "555-1010", R.drawable.c_11),
-    Contacto("Josselyn", "555-1011", R.drawable.c_12),
+    Contacto("Adalberto", "555-1001", R.drawable.c_12),
+    Contacto("Moni", "555-1002", R.drawable.c_18),
+    Contacto("Fidel", "555-1003", R.drawable.c_11),
+    Contacto("Luna", "555-1004", R.drawable.c_10),
+    Contacto("Alvaro", "555-1005", R.drawable.naranja),
+    Contacto("Uriel", "555-1006", R.drawable.c_8),
+    Contacto("Aytana", "555-1007", R.drawable.c_7),
+    Contacto("Charly", "555-1008", R.drawable.c_5),
+    Contacto("Criss", "555-1009", R.drawable.c_4),
+    Contacto("Jaz", "555-1010", R.drawable.c_3),
+    Contacto("Josselyn", "555-1011", R.drawable.c_2),
     Contacto("Marta", "555-1012", R.drawable.c_13),
-    Contacto("Sol", "555-1013", R.drawable.c_14),
-    Contacto("Zapata", "555-1014", R.drawable.c_15),
+    Contacto("Sol", "555-1013", R.drawable.c_15),
+    Contacto("Zapata", "555-1014", R.drawable.c_14),
     Contacto("Less", "555-1015", R.drawable.c1),
-    Contacto("Luis", "555-0116", R.drawable.c_2)
+    Contacto("Luis", "555-0116", R.drawable.c_9)
 )
 
 class MainActivity : ComponentActivity() {
