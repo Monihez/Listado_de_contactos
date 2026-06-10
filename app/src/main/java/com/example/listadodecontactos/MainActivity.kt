@@ -393,7 +393,7 @@ fun PantallaDetalle(nombre: String, telefono: String, fotoRes: Int, onBack: () -
                         modifier = Modifier.size(56.dp),
                         colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color(0xFF10B981))
                     ) {
-                        Icon(Icons.Default.Call, null, tint = Color.White)
+                        Icon(Icons.Default.Call, contentDescription = "Call", tint = Color.White)
                     }
                     Text("Call", style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(top = 8.dp))
                 }
@@ -410,6 +410,24 @@ fun PantallaDetalle(nombre: String, telefono: String, fotoRes: Int, onBack: () -
                     }
                     Text("Message", style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(top = 8.dp))
                 }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Button(
+                onClick = {
+                    val intent = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT, "Nombre: $nombre\nTeléfono: $telefono")
+                        putExtra(Intent.EXTRA_SUBJECT, "Información de contacto")
+                    }
+                    val chooser = Intent.createChooser(intent, "Compartir contacto vía")
+                    context.startActivity(chooser)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Text("Compartir contacto")
             }
         }
     }
